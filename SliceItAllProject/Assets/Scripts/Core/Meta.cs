@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using UI;
 using UnityEngine;
 
 namespace Core
@@ -6,6 +7,7 @@ namespace Core
     public static class Meta
     {
         private static Game game;
+        private static GameMenu gameMenu;
         
         [RuntimeInitializeOnLoadMethod]
         public static async void GameInitialization()
@@ -17,11 +19,9 @@ namespace Core
 
             var obj = new GameObject("GameSystems");
             Object.DontDestroyOnLoad(obj);
-
             var inputSystem = obj.AddComponent<InputSystem>();
             
-            game = new Game();
-            GameScene.Instance.Setup(inputSystem);
+            game = new Game(inputSystem);
         }
     }
 }

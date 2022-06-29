@@ -20,6 +20,11 @@ namespace GamePlay
             offset = transform.position - target.position;
         }
 
+        public void ResetPosition()
+        {
+            transform.position = target.position + offset;
+        }
+
         private void FixedUpdate()
         {
             if (target == null)

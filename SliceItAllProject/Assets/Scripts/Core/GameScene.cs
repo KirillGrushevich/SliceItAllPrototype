@@ -16,9 +16,20 @@ namespace Core
             cameraController.Setup(knife.transform);
         }
 
+        public void ActivateScene()
+        {
+            knife.Activate();
+        }
+
         public void ResetScene()
         {
-            
+            knife.ResetPosition();
+            cameraController.ResetPosition();
+        }
+
+        public void StopScene()
+        {
+            knife.Release();
         }
         
         private void Awake()

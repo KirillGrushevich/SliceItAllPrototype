@@ -37,7 +37,12 @@ namespace GamePlay
         public void Setup(InputSystem inputSystem)
         {
             input = inputSystem;
+        }
+
+        public void Activate()
+        {
             input.OnClick += RotateKnife;
+            RotateKnife();
         }
 
         public void ResetPosition()
@@ -48,6 +53,8 @@ namespace GamePlay
             transform.rotation = basicRotation;
 
             hitCollider = null;
+            
+            Release();
         }
 
         public void Release()
@@ -170,15 +177,6 @@ namespace GamePlay
         private void Reset()
         {
             knifeRigidbody = GetComponent<Rigidbody>();
-        }
-
-        private void Update()
-        {
-            //TODO First tests only
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                ResetPosition();
-            }
         }
     }
 }

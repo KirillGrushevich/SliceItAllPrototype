@@ -92,7 +92,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  autoRotationMinHeight: 3
+  autoRotationMinHeight: 3.3
   freeFallingMaxTime: 0.5
 --- !u!1 &2299976531307748052
 GameObject:
