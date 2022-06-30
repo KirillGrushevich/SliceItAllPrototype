@@ -3,29 +3,31 @@ using UnityEngine;
 
 namespace GamePlay
 {
-    [RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(BoxCollider))]
+    [RequireComponent(typeof(Rigidbody))]
     public class CutObjectPart : MonoBehaviour
     {
         [SerializeField] private Rigidbody objectRigidbody;
-        [SerializeField] private BoxCollider boxCollider;
+        [SerializeField] private Collider objectCollider;
 
         public void Activate(Vector3 force)
         {
-            boxCollider.enabled = true;
+            gameObject.SetActive(true);
+            objectCollider.enabled = true;
             objectRigidbody.isKinematic = false;
             objectRigidbody.AddForce(force, ForceMode.Impulse);
         }
         
         public void Deactivate()
         {
-            boxCollider.enabled = false;
+            gameObject.SetActive(false);
+            objectCollider.enabled = false;
             objectRigidbody.isKinematic = true;
         }
 
         private void Reset()
         {
             objectRigidbody = GetComponent<Rigidbody>();
-            boxCollider = GetComponent<BoxCollider>();
+            objectCollider = GetComponent<BoxCollider>();
         }
     }
 }
