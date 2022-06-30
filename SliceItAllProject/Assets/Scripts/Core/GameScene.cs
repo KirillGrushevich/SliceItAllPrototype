@@ -9,11 +9,17 @@ namespace Core
 
         [SerializeField] private Knife knife;
         [SerializeField] private CameraController cameraController;
+        [SerializeField] private GameObject cutObjects;
+
+        private GameObject cutObjectsCopy;
 
         public void Setup(InputSystem inputSystem)
         {
             knife.Setup(inputSystem);
             cameraController.Setup(knife.transform);
+
+            cutObjectsCopy = Instantiate(cutObjects);
+            cutObjects.SetActive(false);
         }
 
         public void ActivateScene()
@@ -25,6 +31,10 @@ namespace Core
         {
             knife.ResetPosition();
             cameraController.ResetPosition();
+            
+            Destroy(cutObjectsCopy);
+            cutObjectsCopy = Instantiate(cutObjects);
+            cutObjectsCopy.SetActive(true);
         }
 
         public void StopScene()

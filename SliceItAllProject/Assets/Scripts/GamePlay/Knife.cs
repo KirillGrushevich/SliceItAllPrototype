@@ -23,8 +23,7 @@ namespace GamePlay
         [Header("AutoRotation")]
         [SerializeField] private float autoRotationMinHeight = 3f;
         [SerializeField] private float freeFallingMaxTime = 0.5f;
-        
-        
+
         private InputSystem input;
         private Coroutine rotationCoroutine;
 
@@ -33,7 +32,7 @@ namespace GamePlay
         private float basicAngularDrag;
 
         private Collider hitCollider;
-        
+
         public void Setup(InputSystem inputSystem)
         {
             input = inputSystem;
@@ -69,18 +68,14 @@ namespace GamePlay
             basicAngularDrag = knifeRigidbody.angularDrag;
         }
 
-        private void FixedUpdate()
-        {
-            if (knifeRigidbody.isKinematic)
-            {
-                return;
-            }
-
-            transform.Translate(Time.deltaTime * horizontalVelocity * Vector3.forward, Space.World);
-        }
-
         private void OnTriggerEnter(Collider other)
         {
+            if (other.TryGetComponent<CutObject>(out var cutObject))
+            {
+                cutObject.Cut();
+                return;
+            }
+            
             if (hitCollider != null)
             {
                 return;
@@ -144,6 +139,7 @@ namespace GamePlay
 
             while (Vector3.SignedAngle(transform.forward, Vector3.up, Vector3.up) > 10f)
             {
+                transform.Translate(Time.deltaTime * horizontalVelocity * Vector3.forward, Space.World);
                 yield return new WaitForFixedUpdate();
             }
 
