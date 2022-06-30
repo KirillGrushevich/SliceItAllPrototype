@@ -40,7 +40,7 @@ namespace UI
             replayButton.gameObject.SetActive(false);
             resultsPanel.SetActive(true);
             
-            replayCurrentButton.gameObject.SetActive(!isVictory);
+            replayCurrentButton.gameObject.SetActive(true);
             playNextButton.gameObject.SetActive(isVictory);
 
             scoreLabel.text = $"YOUR SCORE \n{score}";
