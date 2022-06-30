@@ -6,6 +6,7 @@ namespace GamePlay
 {
     public class CutObject : MonoBehaviour
     {
+        [SerializeField] private GameObject center;
         [SerializeField] private CutObjectPart[] leftObjects;
         [SerializeField] private CutObjectPart[] rightObjects;
         [SerializeField] private float minHitForce = 1f;
@@ -19,6 +20,11 @@ namespace GamePlay
 
         public void Cut()
         {
+            if (center != null)
+            {
+                center.SetActive(false);
+            }
+            
             boxCollider.enabled = false;
             PrepareObjects(true);
         }
