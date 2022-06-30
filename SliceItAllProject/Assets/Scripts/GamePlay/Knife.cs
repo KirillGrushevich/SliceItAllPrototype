@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Core;
 using UnityEngine;
@@ -23,6 +24,9 @@ namespace GamePlay
         [Header("AutoRotation")]
         [SerializeField] private float autoRotationMinHeight = 3f;
         [SerializeField] private float freeFallingMaxTime = 0.5f;
+
+        public event Action OnFellUnderground;
+        public event Action<int> OnHitFinish;
 
         private InputSystem input;
         private Coroutine rotationCoroutine;
@@ -68,8 +72,26 @@ namespace GamePlay
             basicAngularDrag = knifeRigidbody.angularDrag;
         }
 
+        private void Update()
+        {
+            if (knifeRigidbody.isKinematic || transform.position.y > 0f)
+            {
+                return;
+            }
+
+            Stop();
+            OnFellUnderground?.Invoke();
+        }
+
         private void OnTriggerEnter(Collider other)
         {
+            if (other.TryGetComponent<Finish>(out var finish))
+            {
+                Stop();
+                OnHitFinish?.Invoke(finish.ScoreMultiplier);
+                return;
+            }
+            
             if (other.TryGetComponent<CutObject>(out var cutObject))
             {
                 cutObject.Cut();

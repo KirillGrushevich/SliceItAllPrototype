@@ -12,20 +12,24 @@ namespace UI
             Object.DontDestroyOnLoad(view);
             
             view.OnPlayButtonPressed += ShowGameView;
-            view.OnReplayButtonPressed += ShowStartView;
+            view.OnReplayButtonPressed += ReplayLevel;
             view.OnPlayNextLevelButtonPressed += PlayNextLevel;
             view.OnReplayCurrentGameButtonPressed += ReplayLevel;
         }
 
         public event Action OnGameStarted;
         public event Action OnGameReset;
-        
+
         private readonly GameMenuView view;
 
         public void ShowStartView()
         {
             view.ShowStartView();
-            OnGameReset?.Invoke();
+        }
+        
+        public void ShowFinalScreen(bool isVictory, int score)
+        {
+            view.ShowFinalScreen(isVictory, score);
         }
         
         private void ShowGameView()
@@ -34,19 +38,14 @@ namespace UI
             OnGameStarted?.Invoke();
         }
 
-        private void ShowFinalScreen(bool isVictory)
-        {
-            view.ShowFinalScreen(isVictory);
-        }
-
         private void ReplayLevel()
         {
-            
+            OnGameReset?.Invoke();
         }
 
         private void PlayNextLevel()
         {
-            
+            OnGameReset?.Invoke();
         }
     }
 }

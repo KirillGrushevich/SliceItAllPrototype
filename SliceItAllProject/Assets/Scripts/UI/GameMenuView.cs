@@ -13,6 +13,8 @@ namespace UI
         [SerializeField] private Button replayCurrentButton;
         [SerializeField] private Button playNextButton;
 
+        [SerializeField] private Text scoreLabel;
+
         public event Action OnPlayButtonPressed;
         public event Action OnReplayButtonPressed;
         public event Action OnReplayCurrentGameButtonPressed;
@@ -32,7 +34,7 @@ namespace UI
             resultsPanel.SetActive(false);
         }
 
-        public void ShowFinalScreen(bool isVictory)
+        public void ShowFinalScreen(bool isVictory, int score)
         {
             playButton.gameObject.SetActive(false);
             replayButton.gameObject.SetActive(false);
@@ -40,6 +42,8 @@ namespace UI
             
             replayCurrentButton.gameObject.SetActive(!isVictory);
             playNextButton.gameObject.SetActive(isVictory);
+
+            scoreLabel.text = $"YOUR SCORE \n{score}";
         }
         
         private void Start()

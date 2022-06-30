@@ -1,3 +1,4 @@
+using System;
 using GamePlay;
 using UnityEngine;
 
@@ -13,9 +14,12 @@ namespace Core
 
         private GameObject cutObjectsCopy;
 
-        public void Setup(InputSystem inputSystem)
+        public void Setup(InputSystem inputSystem, Action<bool, int> endGameCallback)
         {
             knife.Setup(inputSystem);
+            knife.OnFellUnderground += delegate { endGameCallback?.Invoke(false, 0); };
+            knife.OnHitFinish += delegate(int score) { endGameCallback?.Invoke(true, score); };
+            
             cameraController.Setup(knife.transform);
 
             cutObjectsCopy = Instantiate(cutObjects);

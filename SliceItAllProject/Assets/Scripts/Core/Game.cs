@@ -8,7 +8,7 @@ namespace Core
         
         public Game(InputSystem inputSystem)
         {
-            GameScene.Instance.Setup(inputSystem);
+            GameScene.Instance.Setup(inputSystem, EndGame);
             
             gameMenu = new GameMenu();
             gameMenu.ShowStartView();
@@ -25,6 +25,12 @@ namespace Core
         private void ResetGame()
         {
             GameScene.Instance.ResetScene();
+            gameMenu.ShowStartView();
+        }
+
+        private void EndGame(bool isWon, int scoreMultiplier)
+        {
+            gameMenu.ShowFinalScreen(isWon, 0 * scoreMultiplier);//TODO
         }
     }
 }
