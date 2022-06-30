@@ -7,8 +7,7 @@ namespace Core
     public static class Meta
     {
         private static Game game;
-        private static GameMenu gameMenu;
-        
+
         [RuntimeInitializeOnLoadMethod]
         public static async void GameInitialization()
         {

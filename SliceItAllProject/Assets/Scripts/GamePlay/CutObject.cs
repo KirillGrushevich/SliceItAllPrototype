@@ -12,6 +12,8 @@ namespace GamePlay
         [SerializeField] private float minHitForce = 1f;
         [SerializeField] private float maxHitForce = 2f;
         [SerializeField] private BoxCollider boxCollider;
+        [SerializeField] private int scorePoints;
+        public int ScorePoints => scorePoints;
 
         private void Start()
         {

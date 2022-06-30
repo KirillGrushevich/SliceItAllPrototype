@@ -234,6 +234,7 @@ MonoBehaviour:
   minHitForce: 1
   maxHitForce: 2
   boxCollider: {fileID: 3960161942610823111}
+  scorePoints: 2
 --- !u!65 &3960161942610823111
 BoxCollider:
   m_ObjectHideFlags: 0
