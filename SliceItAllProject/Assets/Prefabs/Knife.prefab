@@ -64,9 +64,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knifeRigidbody: {fileID: 8781154830272332395}
-  horizontalVelocity: 3
-  moveUpForce: 5
-  rotationUpTorque: 8
+  balance: -0.17
+  startRotationX: 120
+  horizontalVelocity: 2.6
+  moveUpForce: 4
+  rotationUpTorque: 5.6
   rotationDownMaxAngularDrag: 10
   rotationDownMaxAngle: 90
   rotationDownAngularDragCurve:

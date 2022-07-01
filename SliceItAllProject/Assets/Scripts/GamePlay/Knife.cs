@@ -10,6 +10,8 @@ namespace GamePlay
     {
         [Header("Main")]
         [SerializeField] private Rigidbody knifeRigidbody;
+        [SerializeField] private float balance = -0.5f;
+        [SerializeField] private float startRotationX = 120f;
         
         [Header("Movement")]
         [SerializeField] private float horizontalVelocity = 1.5f;
@@ -68,8 +70,13 @@ namespace GamePlay
 
         private void Start()
         {
-            basicPosition = transform.position;
-            basicRotation = transform.rotation;
+            knifeRigidbody.centerOfMass = new Vector3(0f, 0f, balance);
+
+            var thisTransform = transform;
+            thisTransform.eulerAngles = new Vector3(startRotationX, 0f, 0f);
+            
+            basicPosition = thisTransform.position;
+            basicRotation = thisTransform.rotation;
             basicAngularDrag = knifeRigidbody.angularDrag;
         }
 

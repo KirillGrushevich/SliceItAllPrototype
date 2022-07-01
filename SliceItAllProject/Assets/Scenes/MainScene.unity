@@ -6193,18 +6193,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1331517011, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
-      propertyPath: moveUpForce
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331517011, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
-      propertyPath: rotationUpTorque
-      value: 5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1331517011, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
-      propertyPath: horizontalVelocity
-      value: 2.6
-      objectReference: {fileID: 0}
     - target: {fileID: 2299976531087420582, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6223,11 +6211,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2299976531087420582, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.49999994
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2299976531087420582, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.86602545
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2299976531087420582, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
       propertyPath: m_LocalRotation.y
@@ -6239,7 +6227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2299976531087420582, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2299976531087420582, guid: 280aae4b386044c468dc6a32605f1428, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
