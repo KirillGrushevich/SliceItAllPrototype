@@ -51,18 +51,26 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: cbb5f8f07e6166b4b9b2180a807d81de, type: 3}
   - {fileID: 21300000, guid: 1f9a4714dfc315d48b8e91e5453067ae, type: 3}
+  - {fileID: 21300000, guid: 5b06d1f4af3caf44cadb0df131dba3d8, type: 3}
+  - {fileID: 21300000, guid: a123e9f496e22674db3bd66149ecc07d, type: 3}
+  - {fileID: 21300000, guid: 5b0a9ce5f24804845817a56055493505, type: 3}
   - {fileID: 21300000, guid: 9e8274c61673b8a458365832576005b4, type: 3}
   - {fileID: 21300000, guid: b6a757f6793cb0148a905bea74154284, type: 3}
   - {fileID: 21300000, guid: 841ae3188ba4d9746ba4f4ed86597a98, type: 3}
   - {fileID: 21300000, guid: c398922a20f2f984db55718ac2c394f5, type: 3}
+  - {fileID: 21300000, guid: b83fd78d22f5df146893176c4b2704dc, type: 3}
   - {fileID: 21300000, guid: 477e16ce3d75d124c8bd76f95fa08730, type: 3}
   m_PackedSpriteNamesToIndex:
   - button_150
   - heart
+  - Fog_1
+  - Fir_background
+  - Mountains_1
   - button_round_220
   - star
   - arrow_right
   - play
+  - Clouds
   - repeat
   m_RenderDataMap: {}
   m_Tag: Ui
