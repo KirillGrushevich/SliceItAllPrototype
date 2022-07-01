@@ -14,12 +14,23 @@ namespace Core
 
         private GameObject cutObjectsCopy;
 
-        public void Setup(InputSystem inputSystem, Action<bool, int> endGameCallback, Action<int> scorePointsCallback)
+        public void Setup(InputSystem inputSystem, Action<bool, int> endGameCallback, Action<int, Vector3> scorePointsCallback)
         {
             knife.Setup(inputSystem);
-            knife.OnFellUnderground += delegate { endGameCallback?.Invoke(false, 0); };
-            knife.OnHitFinish += delegate(int score) { endGameCallback?.Invoke(true, score); };
-            knife.OnReceiveScorePoints += delegate(int points) { scorePointsCallback?.Invoke(points); };
+            knife.OnFellUnderground += delegate
+            {
+                endGameCallback?.Invoke(false, 0);
+            };
+            
+            knife.OnHitFinish += delegate(int score)
+            {
+                endGameCallback?.Invoke(true, score);
+            };
+            
+            knife.OnReceiveScorePoints += delegate(int points, Vector3 pos)
+            {
+                scorePointsCallback?.Invoke(points, pos);
+            };
             
             cameraController.Setup(knife.transform);
 

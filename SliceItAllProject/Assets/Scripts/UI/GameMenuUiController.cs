@@ -4,12 +4,11 @@ using Object = UnityEngine.Object;
 
 namespace UI
 {
-    public class GameMenu
+    public class GameMenuUiController : UiController
     {
-        public GameMenu()
+        public GameMenuUiController()
         {
-            view = Object.Instantiate(Resources.Load<GameMenuView>("GameMenuView"));
-            Object.DontDestroyOnLoad(view);
+            view = LoadView<GameMenuView>("GameMenuView");
             
             view.OnPlayButtonPressed += ShowGameView;
             view.OnReplayButtonPressed += ReplayLevel;

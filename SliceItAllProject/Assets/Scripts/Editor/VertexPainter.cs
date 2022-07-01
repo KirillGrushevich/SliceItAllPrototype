@@ -3,21 +3,21 @@ using UnityEngine;
 
 namespace Editor
 {
-    public class VoxelPainter : EditorWindow
+    public class VertexPainter : EditorWindow
     {
-        private Color voxelColor = Color.white;
+        private Color color = Color.white;
         
-        [MenuItem("Tools/Voxel Painter")]
+        [MenuItem("Tools/Vertex Painter")]
         private static void ShowWindow()
         {
-            var window = GetWindow<VoxelPainter>();
-            window.titleContent = new GUIContent("VoxelPainter");
+            var window = GetWindow<VertexPainter>();
+            window.titleContent = new GUIContent("VertexPainter");
             window.Show();
         }
 
         private void OnGUI()
         {
-            voxelColor = EditorGUILayout.ColorField("VoxelColor", voxelColor);
+            color = EditorGUILayout.ColorField("Color", color);
 
             if (Selection.activeObject != null && GUILayout.Button("Save"))
             {
@@ -36,11 +36,11 @@ namespace Editor
                     }
 
                     var mesh = Instantiate(meshFilter.sharedMesh);
-                    mesh.name = $"Voxel_{voxelColor}";
+                    mesh.name = $"Mesh_{color}";
                     var colors = new Color[mesh.vertexCount];
                     for (var i = 0; i < colors.Length; i++)
                     {
-                        colors[i] = voxelColor;
+                        colors[i] = color;
                     }
 
                     mesh.colors = colors;

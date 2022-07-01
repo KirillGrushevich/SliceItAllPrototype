@@ -1,10 +1,12 @@
 using UI;
+using UnityEngine;
 
 namespace Core
 {
     public class Game
     {
-        private readonly GameMenu gameMenu;
+        private readonly GameMenuUiController gameMenuUiController;
+        private readonly LevelScoresUiController scoresUiController;
 
         private int scorePoints;
         
@@ -12,11 +14,14 @@ namespace Core
         {
             GameScene.Instance.Setup(inputSystem, EndGame, ReceiveScorePoints);
             
-            gameMenu = new GameMenu();
-            gameMenu.ShowStartView();
+            gameMenuUiController = new GameMenuUiController();
+            gameMenuUiController.ShowStartView();
 
-            gameMenu.OnGameStarted += PlayGame;
-            gameMenu.OnGameReset += ResetGame;
+            gameMenuUiController.OnGameStarted += PlayGame;
+            gameMenuUiController.OnGameReset += ResetGame;
+
+
+            scoresUiController = new LevelScoresUiController();
         }
 
         private void PlayGame()
@@ -28,17 +33,18 @@ namespace Core
         private void ResetGame()
         {
             GameScene.Instance.ResetScene();
-            gameMenu.ShowStartView();
+            gameMenuUiController.ShowStartView();
         }
 
         private void EndGame(bool isWon, int scoreMultiplier)
         {
-            gameMenu.ShowFinalScreen(isWon, scorePoints * scoreMultiplier);
+            gameMenuUiController.ShowFinalScreen(isWon, scorePoints * scoreMultiplier);
         }
         
-        private void ReceiveScorePoints(int points)
+        private void ReceiveScorePoints(int points, Vector3 position)
         {
             scorePoints += points;
+            scoresUiController.ShowNewScore(points, position);
         }
         
     }

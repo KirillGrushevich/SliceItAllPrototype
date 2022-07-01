@@ -25,7 +25,7 @@ namespace GamePlay
         [SerializeField] private float autoRotationMinHeight = 3f;
         [SerializeField] private float freeFallingMaxTime = 0.5f;
 
-        public event Action<int> OnReceiveScorePoints;
+        public event Action<int, Vector3> OnReceiveScorePoints;
         public event Action OnFellUnderground;
         public event Action<int> OnHitFinish;
 
@@ -96,7 +96,7 @@ namespace GamePlay
             if (other.TryGetComponent<CutObject>(out var cutObject))
             {
                 cutObject.Cut();
-                OnReceiveScorePoints?.Invoke(cutObject.ScorePoints);
+                OnReceiveScorePoints?.Invoke(cutObject.ScorePoints, cutObject.transform.position);
                 return;
             }
             
