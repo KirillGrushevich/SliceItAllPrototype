@@ -3169,6 +3169,15 @@ MonoBehaviour:
   knife: {fileID: 1331517011}
   cameraController: {fileID: 963194229}
   cutObjects: {fileID: 1767474825}
+  cutEdgeMaterials:
+  - {fileID: 2100000, guid: a46cff4c470ea4c0ab22b73ea37263b9, type: 2}
+  - {fileID: 2100000, guid: 3b8c754e241e1483b9df08ca68494cf1, type: 2}
+  - {fileID: 2100000, guid: aca2cee0306ee496ab9fe8bcb4d2aac6, type: 2}
+  - {fileID: 2100000, guid: e66ae3396762c441895c5e402c1d7ace, type: 2}
+  - {fileID: 2100000, guid: ecdf2b9dae50a404594379874f9755c2, type: 2}
+  - {fileID: 2100000, guid: 4499823d0f0414f4fb34d2dfb9b28ed5, type: 2}
+  - {fileID: 2100000, guid: 1b9f42412b618457ba920003cd65621d, type: 2}
+  - {fileID: 2100000, guid: fcae86a492b8a492ea4b0b4d512f3a1b, type: 2}
 --- !u!1001 &1067970879
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectRigidbody: {fileID: 2878140947498573851}
   objectCollider: {fileID: 4859260025100031793}
+  cutMeshRenderer: {fileID: 5770318375607520148}
 --- !u!64 &4859260025100031793
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -363,6 +364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectRigidbody: {fileID: 408859955386122226}
   objectCollider: {fileID: 2356452191225242435}
+  cutMeshRenderer: {fileID: 627501868236126286}
 --- !u!64 &2356452191225242435
 MeshCollider:
   m_ObjectHideFlags: 0

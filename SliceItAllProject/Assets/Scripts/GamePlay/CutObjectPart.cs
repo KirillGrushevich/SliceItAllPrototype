@@ -8,13 +8,18 @@ namespace GamePlay
     {
         [SerializeField] private Rigidbody objectRigidbody;
         [SerializeField] private Collider objectCollider;
+        [SerializeField] private MeshRenderer cutMeshRenderer;
 
-        public void Activate(Vector3 force)
+        public void Activate(Vector3 force, Material cutMaterial)
         {
             gameObject.SetActive(true);
             objectCollider.enabled = true;
             objectRigidbody.isKinematic = false;
             objectRigidbody.AddForce(force, ForceMode.Impulse);
+
+            var materials = cutMeshRenderer.sharedMaterials;
+            materials[materials.Length - 1] = cutMaterial;
+            cutMeshRenderer.sharedMaterials = materials;
         }
         
         public void Deactivate()

@@ -457,6 +457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectRigidbody: {fileID: 4461355836077351443}
   objectCollider: {fileID: 4461355836077351440}
+  cutMeshRenderer: {fileID: 1629783019912665140}
 --- !u!1 &4461355836572490216
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,3 +586,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectRigidbody: {fileID: 4461355836572490217}
   objectCollider: {fileID: 4461355836572490222}
+  cutMeshRenderer: {fileID: 2793858696258565191}

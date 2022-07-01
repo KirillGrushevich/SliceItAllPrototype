@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace GamePlay
 {
@@ -46,11 +47,15 @@ namespace GamePlay
 
         private float trailTime;
 
-        public void Setup(InputSystem inputSystem)
+        private Material[] cutMaterials;
+
+        public void Setup(InputSystem inputSystem, Material[] cutObjectMaterials)
         {
             input = inputSystem;
             trailTime = trailRenderer.time;
             trailRenderer.time = 0f;
+
+            cutMaterials = cutObjectMaterials;
         }
 
         public void Activate()
@@ -124,7 +129,7 @@ namespace GamePlay
             
             if (other.TryGetComponent<CutObject>(out var cutObject))
             {
-                cutObject.Cut();
+                cutObject.Cut(cutMaterials[Random.Range(0, cutMaterials.Length)]);
                 OnReceiveScorePoints?.Invoke(cutObject.ScorePoints, cutObject.transform.position);
                 return;
             }

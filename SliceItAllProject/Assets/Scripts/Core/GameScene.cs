@@ -11,12 +11,13 @@ namespace Core
         [SerializeField] private Knife knife;
         [SerializeField] private CameraController cameraController;
         [SerializeField] private GameObject cutObjects;
+        [SerializeField] private Material[] cutEdgeMaterials;
 
         private GameObject cutObjectsCopy;
 
         public void Setup(InputSystem inputSystem, Action<bool, int> endGameCallback, Action<int, Vector3> scorePointsCallback)
         {
-            knife.Setup(inputSystem);
+            knife.Setup(inputSystem, cutEdgeMaterials);
             knife.OnFellUnderground += delegate
             {
                 endGameCallback?.Invoke(false, 0);
