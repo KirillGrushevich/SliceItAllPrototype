@@ -53,6 +53,10 @@ namespace GamePlay
                 }
             }
 
+            if (pos.z < transform.position.z)
+            {
+                pos.z = transform.position.z;
+            }
             transform.position = pos;
         }
     }

@@ -16,6 +16,7 @@ namespace GamePlay
         [Header("Movement")]
         [SerializeField] private float horizontalVelocity = 1.5f;
         [SerializeField] private float moveUpForce = 5f;
+        [SerializeField] private float maxFallingSpeed = -10f;
         
         [Header("Rotation")]
         [SerializeField] private float rotationUpTorque = 20f;
@@ -80,9 +81,21 @@ namespace GamePlay
             basicAngularDrag = knifeRigidbody.angularDrag;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            if (knifeRigidbody.isKinematic || transform.position.y > 0f)
+            if (knifeRigidbody.isKinematic)
+            {
+                return;
+            }
+
+            if (knifeRigidbody.velocity.y < maxFallingSpeed)
+            {
+                var velocity = knifeRigidbody.velocity;
+                velocity.y = maxFallingSpeed;
+                knifeRigidbody.velocity = velocity;
+            }
+            
+            if (transform.position.y > 0f)
             {
                 return;
             }
