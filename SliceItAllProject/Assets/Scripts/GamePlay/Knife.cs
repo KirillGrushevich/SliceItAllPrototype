@@ -28,6 +28,9 @@ namespace GamePlay
         [SerializeField] private float autoRotationMinHeight = 3f;
         [SerializeField] private float freeFallingMaxTime = 0.5f;
 
+        [Header("FX")] 
+        [SerializeField] private TrailRenderer trailRenderer;
+
         public event Action<int, Vector3> OnReceiveScorePoints;
         public event Action OnFellUnderground;
         public event Action<int> OnHitFinish;
@@ -41,19 +44,25 @@ namespace GamePlay
 
         private Collider hitCollider;
 
+        private float trailTime;
+
         public void Setup(InputSystem inputSystem)
         {
             input = inputSystem;
+            trailTime = trailRenderer.time;
+            trailRenderer.time = 0f;
         }
 
         public void Activate()
         {
             input.OnClick += RotateKnife;
+            trailRenderer.time = trailTime;
             RotateKnife();
         }
 
         public void ResetPosition()
         {
+            trailRenderer.time = 0f;
             Stop();
             
             transform.position = basicPosition;

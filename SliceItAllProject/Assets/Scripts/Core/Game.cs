@@ -39,6 +39,7 @@ namespace Core
         private void EndGame(bool isWon, int scoreMultiplier)
         {
             gameMenuUiController.ShowFinalScreen(isWon, scorePoints * scoreMultiplier);
+            GameScene.Instance.StopScene();
         }
         
         private void ReceiveScorePoints(int points, Vector3 position)
